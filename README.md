@@ -1,34 +1,74 @@
-# Handwriting-Analysis_using-python
-The Handwriting Detection Tool compares handwriting using ORB and OCR for validation, calculating similarity between two images. It also extracts handwritten text to digital format with preprocessing and Tesseract OCR. A Tkinter GUI provides an intuitive interface for comparison and text extraction.
+# Handwriting Analysis Tool
 
+This project provides a GUI-based tool for various handwriting analysis tasks including handwriting comparison, handwritten images to text conversion, and a digital evaluation system. The tool is developed in Python and uses libraries such as OpenCV, Tesseract OCR, tkinter, and others.
 
-Handwriting Comparison:
+## Dependencies
 
-Allows users to compare two images containing handwriting and calculate the similarity between them.
-Uses the ORB (Oriented FAST and Rotated BRIEF) algorithm to detect and match features between images.
-Provides a percentage similarity score to show how closely the handwriting matches between the two selected images.
-Utilizes Tesseract OCR to ensure that both images contain handwritten text before performing the comparison.
-Handwriting to Text:
+Make sure you have Python installed on your system. You can install the required dependencies using `pip`.
 
-Extracts handwritten text from an image and converts it into editable text.
-Includes preprocessing steps like contrast enhancement, sharpening, Gaussian blur, and thresholding to improve OCR accuracy.
-Saves the extracted text into a .txt file for further use.
-Uses Tesseract OCR with custom configurations for accurate text recognition.
-User Interface:
+```bash
+pip install opencv-python pytesseract pillow fpdf pymupdf
+```
 
-A user-friendly GUI built with Tkinter that integrates the different functionalities of the tool.
-Provides buttons for selecting images, comparing handwriting, and extracting text.
-Includes visual enhancements like a background image, styled buttons, and responsive design.
-Integration:
+Additionally, you need to install Tesseract OCR. Follow the instructions for your operating system:
 
-The main script (main.py) serves as a launcher for individual tools (comparison and text extraction), using subprocesses to execute separate Python scripts.
-Technical Highlights:
-Image Processing: OpenCV and PIL are used for image manipulation and preprocessing.
-OCR Engine: Tesseract OCR extracts text from images, ensuring robust performance.
-Feature Matching: ORB and BRIEF algorithms provide efficient keypoint detection and description for handwriting comparison.
-Tkinter GUI: Offers an intuitive way for users to interact with the tool.
-File Handling: Outputs extracted text into a .txt file for saving and editing.
-Use Case Scenarios:
-Forensic Handwriting Analysis: Comparing handwritten notes for similarity.
-Document Digitization: Converting handwritten notes into digital text for storage and processing.
-Educational Tools: Helping students or educators analyze and digitize handwritten materials.
+- **Windows**: Download the installer from [Tesseract at UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki) and run it.
+- **macOS**: Use Homebrew to install Tesseract:
+  ```bash
+  brew install tesseract
+  ```
+- **Linux**: Use your package manager to install Tesseract. For example, on Ubuntu:
+  ```bash
+  sudo apt-get install tesseract-ocr
+  ```
+
+## Project Structure
+
+- `h_cmp.py`: Handwriting comparison between two images.
+- `h_totxt.py`: Convert handwritten images or PDFs to text and save the output.
+- `h_des.py`: Digital evaluation system to compare a student's handwritten answer sheet with the answer key.
+- `main.py`: Main GUI to integrate all functionalities (described below).
+
+## Running the Project
+
+1. **Handwriting Comparison**
+
+   Run the handwriting comparison tool:
+
+   ```bash
+   python h_cmp.py
+   ```
+
+   This will open a GUI where you can select two images and compare their handwriting similarity.
+
+2. **Handwritten Images to Text**
+
+   Run the handwritten images to text conversion tool:
+
+   ```bash
+   python h_totxt.py
+   ```
+
+   This will open a GUI where you can select a handwritten image or PDF and convert it to a text document.
+
+3. **Digital Evaluation System**
+
+   Run the digital evaluation system tool:
+
+   ```bash
+   python h_des.py
+   ```
+
+   This will open a GUI where you can select an answer key image and a student's answer image to evaluate the correctness.
+
+## References
+
+- **OpenCV**: [OpenCV Documentation](https://docs.opencv.org/)
+- **Tesseract OCR**: [Tesseract OCR Documentation](https://github.com/tesseract-ocr/tesseract)
+- **Pillow (PIL Fork)**: [Pillow Documentation](https://pillow.readthedocs.io/)
+- **FPDF**: [FPDF Documentation](http://www.fpdf.org/)
+- **PyMuPDF**: [PyMuPDF Documentation](https://pymupdf.readthedocs.io/)
+
+## License
+
+This project is licensed under the MIT License.
